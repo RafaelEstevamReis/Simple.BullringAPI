@@ -57,4 +57,42 @@ public class BullringClient
 
     #endregion
 
+    #region Bank
+
+    /// <summary>
+    /// Verifies a Pix key
+    /// </summary>
+    /// <param name="id">Subaccount ID (UUID)</param>
+    /// <param name="pixKey">BRL Account PIX Key</param>
+    public async Task<Models.BankModels.VerifyPixModel> Bank_VerifyPixKey(Guid id, string pixKey)
+    {
+        var r = await client.PutAsync<Models.BankModels.VerifyPixModel>($"/v1/ramp/subaccount/{id}/banks", new
+        {
+            brlAccount = new
+            {
+                pixKey,
+            }
+        });
+        r.EnsureSuccessStatusCode();
+        return r.Data;
+    }
+    /// <summary>
+    /// Merchant must first verify a Pix key before adding it to their subaccount. This endpoint is used to add a verified Pix key.
+    /// </summary>
+    /// <param name="id">Subaccount ID (UUID)</param>
+    /// <param name="pixKey">BRL Account PIX Key</param>
+    public async Task Bank_AddPixKey(Guid id, string pixKey)
+    {
+        var r = await client.PostAsync<string>($"/v1/ramp/subaccount/{id}/banks", new
+        {
+            brlAccount = new
+            {
+                pixKey,
+            }
+        });
+        r.EnsureSuccessStatusCode();
+    }
+
+    #endregion
+
 }
