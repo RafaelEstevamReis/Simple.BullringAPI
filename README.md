@@ -144,7 +144,7 @@ Current API Compliance state
 
 * Payments:
   * [x] Get all payments
-  * [ ] Create payment
+  * [x] Create payment
   * [x] Get one payment by ID
 
 * Withdrawals:
