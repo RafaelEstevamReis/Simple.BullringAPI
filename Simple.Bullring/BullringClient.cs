@@ -42,4 +42,19 @@ public class BullringClient
 
     #endregion
 
+    #region Verification
+
+    /// <summary>
+    /// Get the KYB verification url of a subaccount and share with them to fill out their details.
+    /// </summary>
+    /// <param name="id">Subaccount ID</param>
+    public async Task<Models.VerificationModels.KYBUrlModel> Verification_GetKybUrl(Guid id)
+    {
+        var r = await client.GetAsync<Models.VerificationModels.KYBUrlModel>($"/v1/ramp/subaccount/{id}/kyb");
+        r.EnsureSuccessStatusCode();
+        return r.Data;
+    }
+
+    #endregion
+
 }
