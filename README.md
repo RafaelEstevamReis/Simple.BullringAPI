@@ -9,7 +9,7 @@ Official Documentation: [https://docs.bullring.finance/en/introduction](https://
 
 * You must have an active account with BullRing Finance
 * Familiarize yourself with BullRing Finance [official documentation](https://docs.bullring.finance/en/introduction)
-* Ensure you have a valid Bullring Finance API key for production or staging environments.
+* Ensure you have a your Bullring Finance API key for production or staging environments.
 
 ## Installation
 
@@ -34,7 +34,7 @@ var stagingClient = BullringClient.FromStagingEnviroment("your-staging-api-key")
 
 ## Key Features
 
-Below are examples demonstrating common operations with the BullringClient class.
+Below are examples demonstrating common operations with the BullringClient.
 
 ### 1. Retrieve All Subaccounts
 
@@ -71,7 +71,7 @@ Console.WriteLine($"KYB URL: {kybUrl.Url}");
 
 ### 4. Verify and Add a Pix Key
 
-Verify a Pix key and add it to a subaccount’s bank details.
+Verify a Pix key and add it to a subaccountï¿½s bank details.
 
 ~~~
 var subaccountId = Guid.Parse("123e4567-e89b-12d3-a456-426614174000");
