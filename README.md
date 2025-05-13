@@ -126,7 +126,7 @@ catch (HttpRequestException ex)
 }
 ~~~
 
-## API Compliance: 9/15
+## API Compliance: 10/15
 
 Current API Compliance state
 
