@@ -118,6 +118,36 @@ public class BullringClient
         r.EnsureSuccessStatusCode();
         return r.Data;
     }
+
+    /// <summary>
+    /// Create a new invoice to receive a crypto payment.
+    /// </summary>
+    /// <param name="id">Subaccount ID (UUID)</param>
+    /// <param name="amount">Payment amout</param>
+    /// <param name="currency">Payment currecy</param>
+    /// <param name="note">[Optional] Payment note</param>
+    /// <exception cref="ArgumentException">Currency must be valid; Note must not be empty</exception>
+    public async Task<Models.PaymentsModels.PaymentModel> Payments_CreatePayment(Guid id, decimal amount, string currency = "brl", string note = null)
+    {
+        if (string.IsNullOrWhiteSpace(currency))
+        {
+            throw new ArgumentException($"'{nameof(currency)}' cannot be null or whitespace.", nameof(currency));
+        }
+
+        if (note != null && string.IsNullOrWhiteSpace(note)) // Only Whitespace
+        {
+            throw new ArgumentException($"'{nameof(note)}' cannot be empty or whitespace.", nameof(note));
+        }
+
+        var r = await client.PostAsync<Models.PaymentsModels.PaymentModel>($"/v1/ramp/subaccount/{id}/payments", new
+        {
+            amount, currency, note
+        });
+
+        r.EnsureSuccessStatusCode();
+        return r.Data;
+    }
+
     /// <summary>
     /// Retrieve details of a specific payment by ID.
     /// </summary>
