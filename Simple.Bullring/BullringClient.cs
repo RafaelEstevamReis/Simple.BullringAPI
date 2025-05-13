@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 public class BullringClient
 {
     private readonly API.ClientInfo client;
+    /// <summary>
+    /// Internal Rest API Client
+    /// </summary>
     public API.ClientInfo InternalClient => client;
 
     private BullringClient(string apiKey, string url)
@@ -15,7 +18,15 @@ public class BullringClient
         client.SetHeader("x-api-key", apiKey);
     }
 
+    /// <summary>
+    /// Instantiates a BullringClient object for Production enviroment
+    /// </summary>
+    /// <param name="apiKey">Production API Key</param>
     public BullringClient(string apiKey) : this(apiKey, "https://api.bullring.finance/") { }
+    /// <summary>
+    /// Instantiates a BullringClient object for Staging enviroment
+    /// </summary>
+    /// <param name="apiKey">Staging API Key</param>
     public static BullringClient FromStagingEnviroment(string apiKey) => new BullringClient(apiKey, "https://staging-api.bullring.finance/");
 
     #region Sub Account
