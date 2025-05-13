@@ -121,4 +121,30 @@ public class BullringClient
 
     #endregion
 
+    #region Withdrawals
+
+    /// <summary>
+    /// Retrieve a list of all withdrawals associated with a subaccount
+    /// </summary>
+    /// <param name="id">Subaccount ID (UUID)</param>
+    public async Task<ResponseBase<Models.WithdrawalsModels.WithdrawalModel[]>> Withdrawals_GetAllWithdrawals(Guid id)
+    {
+        var r = await client.GetAsync<ResponseBase<Models.WithdrawalsModels.WithdrawalModel[]>>($"/v1/ramp/subaccount/{id}/withdrawals");
+        r.EnsureSuccessStatusCode();
+        return r.Data;
+    }
+    /// <summary>
+    /// Retrieve the details of a specific withdrawal request
+    /// </summary>
+    /// <param name="id">Subaccount ID (UUID)</param>
+    /// <param name="withdrawalId">Withdrawal ID (UUID)</param>
+    public async Task<Models.WithdrawalsModels.WithdrawalModel> Withdrawals_GetWithdrawal(Guid id, Guid withdrawalId)
+    {
+        var r = await client.GetAsync<Models.WithdrawalsModels.WithdrawalModel>($"/v1/ramp/subaccount/{id}/withdrawals/{withdrawalId}");
+        r.EnsureSuccessStatusCode();
+        return r.Data;
+    }
+
+    #endregion
+
 }
