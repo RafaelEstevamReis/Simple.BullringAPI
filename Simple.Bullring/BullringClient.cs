@@ -95,4 +95,30 @@ public class BullringClient
 
     #endregion
 
+    #region Payments
+
+    /// <summary>
+    /// Retrieve all payments for a specific merchant
+    /// </summary>
+    /// <param name="id">Subaccount ID (UUID)</param>
+    public async Task<Models.PaymentsModels.PaymentModel[]> Payments_GetAllPayments(Guid id)
+    {
+        var r = await client.GetAsync<Models.PaymentsModels.PaymentModel[]>($"/v1/ramp/subaccount/{id}/payments");
+        r.EnsureSuccessStatusCode();
+        return r.Data;
+    }
+    /// <summary>
+    /// Retrieve details of a specific payment by ID.
+    /// </summary>
+    /// <param name="id">Subaccount ID (UUID)</param>
+    /// <param name="paymentId">Payment ID (UUID)</param>
+    public async Task<Models.PaymentsModels.PaymentModel> Payments_GetPayment(Guid id, Guid paymentId)
+    {
+        var r = await client.GetAsync<Models.PaymentsModels.PaymentModel>($"/v1/ramp/subaccount/{id}/payments/{paymentId}");
+        r.EnsureSuccessStatusCode();
+        return r.Data;
+    }
+
+    #endregion
+
 }
