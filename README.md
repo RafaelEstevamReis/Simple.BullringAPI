@@ -6,8 +6,13 @@ Official Documentation: [https://docs.bullring.finance/en/introduction](https://
 
 ## Installation
 
-
 Ensure you have a valid Bullring Finance API key for production or staging environments.
+
+
+NuGet [link](https://www.nuget.org/packages/Simple.Bullring):
+~~~
+PM> NuGet\Install-Package Simple.Bullring
+~~~
 
 # Getting Started
 
@@ -118,6 +123,37 @@ catch (HttpRequestException ex)
     Console.WriteLine($"Error: {ex.Message}");
 }
 ~~~
+
+## API Compliance: 9/15
+
+Current API Compliance state
+
+* Sub Account:
+  * [X] Get all merchants
+  * [ ] Create merchant
+  * [x] Get one merchant by ID
+
+* Verification:
+  * [x] Get KYB url
+
+* Bank:
+  * [X] Verify Pix Key
+  * [x] Add Pix Key
+
+* Payments:
+  * [x] Get all payments
+  * [ ] Create payment
+  * [x] Get one payment by ID
+
+* Withdrawals:
+  * [x] Get all withdrawals
+  * [ ] Initiate withdrawal
+  * [x] Get one withdrawal by ID
+  * [ ] Set daily withdrawal schedule
+
+* Webhook:
+  * [ ] Add Webhook
+  * [ ] Delete Webhook
 
 ## Contributing
 Contributions are welcome! Please submit issues or pull requests to the repository
