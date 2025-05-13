@@ -1,20 +1,22 @@
 # Simple.BullringAPI
 
-A simple C# client library for interacting with the [Bullring Finance](https://www.bullring.finance/) API, enabling developers to manage subaccounts, payments, withdrawals, bank verifications, and more.
+A simple C# client library for interacting with the [Bullring Finance](https://www.bullring.finance/) API, 
+enabling developers to manage subaccounts, payments, withdrawals, bank verifications, and more.
 
 Official Documentation: [https://docs.bullring.finance/en/introduction](https://docs.bullring.finance/en/introduction)
 
+# Getting Started
+
+* You must have an active account with BullRing Finance
+* Familiarize yourself with BullRing Finance [official documentation](https://docs.bullring.finance/en/introduction)
+* Ensure you have a valid Bullring Finance API key for production or staging environments.
+
 ## Installation
-
-Ensure you have a valid Bullring Finance API key for production or staging environments.
-
 
 NuGet [link](https://www.nuget.org/packages/Simple.Bullring):
 ~~~
 PM> NuGet\Install-Package Simple.Bullring
 ~~~
-
-# Getting Started
 
 ## Initializing the Client
 
