@@ -19,15 +19,15 @@ public class BullringClient
     }
 
     /// <summary>
-    /// Instantiates a BullringClient object for Production enviroment
+    /// Instantiates a new BullringClient object for Production enviroment
     /// </summary>
     /// <param name="apiKey">Production API Key</param>
     public BullringClient(string apiKey) : this(apiKey, "https://api.bullring.finance/") { }
     /// <summary>
-    /// Instantiates a BullringClient object for Staging enviroment
+    /// Instantiates a new BullringClient object for Staging enviroment
     /// </summary>
     /// <param name="apiKey">Staging API Key</param>
-    public static BullringClient FromStagingEnviroment(string apiKey) => new BullringClient(apiKey, "https://staging-api.bullring.finance/");
+    public static BullringClient FromStagingEnviroment(string apiKey) => new (apiKey, "https://staging-api.bullring.finance/");
 
     #region Sub Account
 
