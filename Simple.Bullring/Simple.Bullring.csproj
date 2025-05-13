@@ -3,8 +3,35 @@
 	<PropertyGroup>
 		<TargetFramework>netstandard2.0</TargetFramework>
 		<LangVersion>12</LangVersion>
+		<ImplicitUsings>disable</ImplicitUsings>
+		
+		<Version>0.2.3</Version>
+		<Authors>RafaelEstevam.Net</Authors>
+		<Company>RafaelEstevam.Net</Company>
+		<Product>C# Client API for Bullring Finance</Product>
+		<Description>A Simple C# Client API for Bullring Finance</Description>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageProjectUrl>https://github.com/RafaelEstevamReis/Simple.BullringAPI</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/RafaelEstevamReis/Simple.BullringAPI</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageReleaseNotes>
+			See project page at
+			https://github.com/RafaelEstevamReis/Simple.BullringAPI
+		</PackageReleaseNotes>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<NoWarn>$(NoWarn);1591</NoWarn>
 	</PropertyGroup>
-
+	<PropertyGroup>
+		<DocumentationFile>..\Simple.Bullring.xml</DocumentationFile>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+	</PropertyGroup>
+	<ItemGroup>
+		<None Include="..\README.md">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
+	
 	<ItemGroup>
 		<PackageReference Include="Simple.API" Version="1.9.3" />
 	</ItemGroup>
